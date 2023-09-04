@@ -7,14 +7,14 @@ from administracion.models import solped
 class solpedAdmin(ImportExportModelAdmin):
     list_display = ('registro','estado')
     exclude = ('ESTADO',)
-    list_filter = ('NUMERO','ESTADO','DETALLE',)
+    list_filter = ('NUMERO','ESTADO',)
     actions = [autorizarSolped,cancelarSolped]
 
     def total(self, obj):
         return "💲{:,.2f}".format(obj.TOTAL)
     
     def registro(self,obj):
-        return f'{obj.NUMERO} | | {obj.DETALLE} | {"💲{:,.2f}".format(obj.TOTAL)}'
+        return f'{obj.NUMERO} | {obj.CONCEPTO} | {"💲{:,.2f}".format(obj.TOTAL)}'
 
     def estado(self, obj):
         if obj.ESTADO == 0:

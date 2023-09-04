@@ -18,7 +18,7 @@ class solped(models.Model):
     ESTADO = models.BooleanField(default=0)
 
     def __str__(self):
-        NAME = str(self.NUMERO) + " - " + str(self.DETALLE) + " - " + str(self.TOTAL)
+        NAME = str(self.NUMERO) + " - " + str(self.CONCEPTO) + " - " + str(self.TOTAL)
         return NAME
     
     class Meta:
