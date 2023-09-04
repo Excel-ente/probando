@@ -10,7 +10,7 @@ class solped(models.Model):
     CANTIDAD = models.DecimalField(max_digits=20,decimal_places=2,default=0,null=False, blank=False)
     PRECIO = models.DecimalField(max_digits=20,decimal_places=2,default=0,null=False, blank=False)    
     TOTAL = models.DecimalField(max_digits=20,decimal_places=2,default=0,null=False, blank=False)
-    DETALLE = models.CharField(max_length=255, null=True, blank=True) 
+    DETALLE = models.TextField(null=True, blank=True) 
     CONCEPTO = models.CharField(max_length=255, null=True, blank=True)
     CATEGORIA = models.CharField(max_length=255, null=True, blank=True)
     FUENTE_FINANCIAMIENTO = models.CharField(max_length=255, null=True, blank=True)
