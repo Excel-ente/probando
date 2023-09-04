@@ -6,14 +6,15 @@ from administracion.models import solped
 @admin.register(solped)
 class solpedAdmin(ImportExportModelAdmin):
     list_display = ('registro','estado')
-    list_filter = ('NUMERO','ESTADO','OFICINA','DETALLE',)
+    exclude = ('ESTADO',)
+    list_filter = ('NUMERO','ESTADO','DETALLE',)
     actions = [autorizarSolped,cancelarSolped]
 
     def total(self, obj):
         return "💲{:,.2f}".format(obj.TOTAL)
     
     def registro(self,obj):
-        return f'{obj.NUMERO} | {obj.OFICINA} | {obj.DETALLE} | {"💲{:,.2f}".format(obj.TOTAL)}'
+        return f'{obj.NUMERO} | | {obj.DETALLE} | {"💲{:,.2f}".format(obj.TOTAL)}'
 
     def estado(self, obj):
         if obj.ESTADO == 0:
